@@ -1,27 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Web site created using create-snowpack-app" />
-    <link rel="stylesheet" type="text/css" href="/index.css" />
-    <title>Snowpack App</title>
+    <link rel="stylesheet" type="text/css" href="/index.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>E - commerce test</title>
   </head>
   <body>
-    <img id="img" src="/logo.svg" />
-    <canvas id="canvas"></canvas>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script type="module" src="/dist/index.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.png" alt="" width="100" height="100">
+          </a>
+          <div class="dropdown">
+            <button class="dropbtn">Cart</button>
+            <h5 id="cart-counter"></h5>
+            <div id="cart-container" class="dropdown-content">
+              <!-- here -->
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="row d-flex justify-content-center">
+        <div class="card m-2" style="width: 18rem;">
+          <img data-bs-toggle="modal" data-bs-target="#exampleModal1" src="img/desktop.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">LDLC PC Frackass-SSD </h5>
+            <p class="card-text">Intel Celeron G5905 (3.5 GHz) 8 Go SSD 240 Go Wi-FI N (sans OS - non monté)</p>
+            <button class="btn btn-primary" onclick="AddToCart(event)" value="LDLC PC Frackass-SSD">Add to cart</button>
+          </div>
+        </div>
+        <div class="card m-2" style="width: 18rem;">
+          <img data-bs-toggle="modal" data-bs-target="#exampleModal2" src="img/mouse.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" >Glorious Model O Wireless (Blanc)</h5>
+            <p class="card-text">Souris gaming - sans fil - capteur optique Pixart de 19000 dpi - 6 boutons - interrupteurs Omron</p>
+            <button class="btn btn-primary" onclick="AddToCart(event)" value="Glorious Model O Wireless (Blanc)">Add to cart</button>
+          </div>
+        </div>
+        <div class="card m-2" style="width: 18rem;">
+          <img data-bs-toggle="modal" data-bs-target="#exampleModal3" src="img/laptop.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" >Dell Inspiron 14 5418 Intel Core i5-11300H</h5>
+            <p class="card-text">Intel Core i5-11300H 8 Go SSD 512 Go 15.6".</p>
+            <button class="btn btn-primary" onclick="AddToCart(event)" value="Dell Inspiron 14 5418 Intel Core i5-11300H">Add to cart</button>
+          </div>
+        </div>
+        <div class="card m-2" style="width: 18rem;">
+          <img data-bs-toggle="modal" data-bs-target="#exampleModal4" src="img/ipad.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" >Apple iPad (2021) 64 Go Wi-Fi Gris Sidéral</h5>
+            <p class="card-text">Tablette Internet - Apple A13 Bionic 64 bits - eMMC 64 Go .</p>
+            <button class="btn btn-primary" onclick="AddToCart(event)" value="Apple iPad (2021) 64 Go Wi-Fi Gris Sidéral">Add to cart</button>
+          </div>
+        </div>
+    </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <!-- MODALS -->
+
+    <!-- Modal 1-->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            Avec des composants de premier choix triés sur le volet par nos spécialistes et spécifiquement sélectionnés pour leur haute compatibilité, leur performance et leur fiabilité, cette machine polyvalente, homogène et efficace présente un rapport qualité / prix absolument incroyable.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            Imaginée par une communauté de joueurs, la souris Glorious PC Gaming Race Model O vous offre performances et perfection. Conçue pour la vitesse, le contrôle et le confort, elle intègre un capteur optique Pixart de 19000 dpi, une connectivité sans fil 2.4 GHz et 6 boutons.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 3-->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            Le PC portable Dell Inspiron 15 5518 réunit performance, confort et mobilité. Avec ses composants performants, son écran de 15.6" avec cadre mince et son poids léger, cet ordinateur portable est un compagnon mobile de choix !
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 4-->
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            Puissant. Intuitif. Polyvalent. Le nouvel iPad, c'est un superbe écran Retina de 10.2 pouces, une puissante puce A13 Bionic, une caméra avant ultra grand-angle avec Cadre centré, et la compatibilité avec l'Apple Pencil et le Smart Keyboard.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- MODALS END-->
+
+
+
+
+
+
+    
+    <script src="/dist/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>
 </html>

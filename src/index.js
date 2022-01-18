@@ -1,11 +1,22 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
+let shopping_cart = [];
+let response;
+let getCart = document.getElementById('cart-container');
+let cartCounter = document.getElementById('cart-counter')
 
-import confetti from 'canvas-confetti';
 
-confetti.create(document.getElementById('canvas'), {
-  resize: true,
-  useWorker: true,
-})({ particleCount: 200, spread: 200 });
+function AddToCart(event) {
+    let createA = document.createElement('a');
+    response = event.target.value;
+    shopping_cart.push(response)
+    createA.setAttribute('onclick', 'DeleteElement()')
+    createA.textContent = shopping_cart.at(-1);
+    getCart.appendChild(createA)
+    cartCounter.textContent = shopping_cart.length
+}
+
+
+
+
+
+
+
