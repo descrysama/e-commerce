@@ -3,7 +3,7 @@ let response;
 let getCart = document.getElementById('cart-container');
 let cartCounter = document.getElementById('cart-counter')
 let Cart_number = document.querySelectorAll('.cart-items').length;
-let counter = 0;
+let counter = localStorage.getItem('counter') || 0;
 let counterlocal = 0;
 
 for (counterlocal = 0; counterlocal <= localStorage.length; counter++) {
@@ -23,6 +23,7 @@ function AddToCart(event) {
     localStorage.setItem('value'+counter, event.target.value);
     counter++;
     cartCounter.textContent = "Votre panier : " + counter;
+    localStorage.setItem('counter', counter)
 }
 
 
