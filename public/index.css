@@ -20,6 +20,10 @@
   .dropdown {
     position: relative;
     display: inline-block;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -48,3 +52,12 @@
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+  .cart_content {
+    background-color: black;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+  }
